@@ -1,5 +1,6 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { connect } from 'react-redux';
 
 import AuthScreen from './Auth/Auth';
 import SharePlaceScreen from './SharePlace/SharePlace';
@@ -27,4 +28,16 @@ const SwitchNavigator = createSwitchNavigator(
 
 const AppContainer = createAppContainer(SwitchNavigator);
 
-export default AppContainer;
+const mapStateToProps = state => {
+    return {
+        allPlaces: state.places.savedPlaces
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAddPlace: name => dispatch(addPlace(name))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

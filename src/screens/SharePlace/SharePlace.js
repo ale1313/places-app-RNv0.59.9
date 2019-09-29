@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet} from 'react-native';
-import { connect } from 'react-redux';
 
 import ButtonOpacity from '../../components/ButtonOpacity/ButtonOpacity';
 import ImagePicker from '../../components/ImagePicker/ImagePicker';
@@ -55,16 +54,4 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapStateToProps = state => {
-    return {
-        allPlaces: state.places.savedPlaces
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onAddPlace: name => dispatch(addPlace(name))
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SharePlaceScreen);
+export default SharePlaceScreen;

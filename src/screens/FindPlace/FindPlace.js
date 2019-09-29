@@ -50,17 +50,4 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapStateToProps = state => {
-    return {
-        allPlaces: state.places.savedPlaces
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onAddPlace: name => dispatch(addPlace(name)),
-        onItemSelected: key => dispatch(selectPlace(key))
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FindPlaceScreen);
+export default FindPlaceScreen;
